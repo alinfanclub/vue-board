@@ -2,7 +2,7 @@
     <li>
         <div class="post-title">
             {{ postItem.title }}
-             <div>
+            <div>
                 <button>
                     <ion-icon name="close-outline"></ion-icon>
                 </button>
