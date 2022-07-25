@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import { logIn } from "@/api/api";
+// import { logIn } from "@/api/api";
 import { validateEmail } from "@/utils/validation";
-
+// import { saveAuthToCookie, saveUserToCookie } from "@/utils/cookies";
 export default {
     data() {
         return {
@@ -44,9 +44,13 @@ export default {
                     username: this.username,
                     password: this.password,
                 };
-                const { data } = await logIn(loginData);
-                this.$store.commit("setUsername", data.user.nickname);
-                console.log(data.user);
+                await this.$store.dispatch("LOGIN", loginData);
+                // const { data } = await logIn(loginData);
+                // this.$store.commit("setToken", data.token);
+                // this.$store.commit("setUsername", data.user.nickname);
+                // saveAuthToCookie(data.token);
+                // saveUserToCookie(data.user.username);
+                // this.$router.push("/main");
                 this.$router.push("/main");
             } catch (error) {
                 console.log(error.response.data);

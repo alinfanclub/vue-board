@@ -20,6 +20,10 @@ const routes = [
         path: "/:catchAll(.*)",
         component: () => import("../views/NotFoundPage.vue"),
     },
+    {
+        path: "/add",
+        component: () => import("../views/PostAddPage"),
+    },
 ];
 
 const router = createRouter({
